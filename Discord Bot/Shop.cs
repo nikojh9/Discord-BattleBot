@@ -11,6 +11,7 @@ namespace Discord_Bot
 
 
 
+
         public void initiateShopItems()
         {
           
