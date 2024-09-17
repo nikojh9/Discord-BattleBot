@@ -31,6 +31,17 @@ namespace Discord_Bot
 
             Client.Ready += Client_Ready;
 
+            var commandsConfig = new CommandsNextConfiguration()
+            {
+                StringPrefixes = new string[] { jsonReader.prefix },
+                EnableMentionPrefix = true,
+                EnableDms = true,
+                EnableDefaultHelp = false,
+            };
+
+            Commands = Client.UseCommandsNext(commandsConfig);
+            Commands.RegisterCommands<commands.TestCommand>();
+
             await Client.ConnectAsync();
             await Task.Delay(-1);
         }
