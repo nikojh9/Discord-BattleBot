@@ -49,5 +49,21 @@ namespace Discord_Bot.commands
             await ctx.Channel.SendMessageAsync("Knep dig selv " + name);
         }
 
+        //SNATCH PROFILEPIC
+
+        [Command("profil")]
+        public async Task Snatch2(CommandContext ctx)
+        {
+            string img = ctx.Member.AvatarUrl;
+            string name = ctx.User.Username;
+            await ctx.Channel.SendMessageAsync(name);
+            await ctx.Channel.SendMessageAsync("W/T/L: " + "10/2/0");
+            await ctx.Channel.SendMessageAsync("---STATS---");
+            await ctx.Channel.SendMessageAsync("Vigour: " + "22");
+            await ctx.Channel.SendMessageAsync("Endurance: " + "22");
+            await ctx.Channel.SendMessageAsync("Strength: " + "22");
+            await ctx.Channel.SendMessageAsync(img);
+        }
     }
+
 }
