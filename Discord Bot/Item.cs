@@ -35,6 +35,30 @@ namespace Discord_Bot
             ItemStrength = itemStrength;
             ItemType = type;
         }
+
+        public override string ToString()
+        {
+        
+            return $"Item Name: {ItemName}\n" +
+                   $"Description: {ItemDescription}\n" +
+                   $"Vigor: {ItemVigor}\n" +
+                   $"Endurance: {ItemEndurance}\n" +
+                   $"Strength: {ItemStrength}\n" +
+                   $"Type: {ItemType}";
+        }
+
+        public static void printItems(List<Item> item)
+        {
+            foreach (Item item2 in item)
+            {
+                item2.ToString();
+            }
+        }
+
+
+
+
     }
+        
 }
 

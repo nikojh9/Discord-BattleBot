@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace Discord_Bot
         public double Endurance { get; set; }
         public double Strength { get; set; }
         public Item[] items = new Item[5];
+        public int Gold { get; set; }
 
 
         public Player(double Vigor, double Endurance, double Strength)
@@ -68,5 +70,15 @@ namespace Discord_Bot
                 this.Strength += item.ItemStrength;
             }
         }
+
+        public string Stats()
+        {
+            return 
+                   $"Endurance: {Endurance}\n" +
+                   $"Strength: {Strength}\n" +
+                   $"Vigor: {Vigor}";
+        }
+
+        
     }
 }

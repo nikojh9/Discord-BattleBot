@@ -8,12 +8,12 @@ namespace Discord_Bot
 {
     internal class Shop
     {
-        public List<Item> ShopAllItems { get; set; }
+        public static List<Item> ShopAllItems { get; set; } = new List<Item>();
         public Item[] ShopItemsForSale = new Item[5];
 
 
-        public void initiateShopItems() 
-        {
+        public static void initiateShopItems() 
+        {   
 
             Item it1 = new Item("Evalds Tand", "Kraftfuld trinket fra den episke kamp mellem kevin og evald", 5, 5, 5, Item.Type.Trinket);
             Item it2 = new Item("Juhls Kødsværd", "Ikke så stor men meget masse", 1,1,10, Item.Type.Weapon);
@@ -28,8 +28,16 @@ namespace Discord_Bot
             ShopAllItems.Add(it4);
             ShopAllItems.Add(it5);
             ShopAllItems.Add(it6);
-                            
+
+            
+            
+            
+                     
         }
+
+        
+
+
 
 
     }
