@@ -8,26 +8,25 @@ namespace Discord_Bot
 {
     internal class Item
     {
-
         public String ItemName { get; set; }
         public String ItemDescription { get; set; }
         public double ItemVigor { get; set; }
         public double ItemEndurance { get; set; }
         public double ItemStrength { get; set; }
         public Type ItemType { get; set; }
-      
+
         public enum Type
         {
             Helmet,
-           BreastPlate,
-           Leggins,
-           Boots,
-           Weapon,
-           Trinket
-            
+            BreastPlate,
+            Leggins,
+            Boots,
+            Weapon,
+            Trinket
+
         }
 
-        public Item(string itemName, string itemDescription, double itemVigor, double itemEndurance, double itemStrength,Type type)
+        public Item(string itemName, string itemDescription, double itemVigor, double itemEndurance, double itemStrength, Type type)
         {
             ItemName = itemName;
             ItemDescription = itemDescription;
@@ -38,3 +37,4 @@ namespace Discord_Bot
         }
     }
 }
+
