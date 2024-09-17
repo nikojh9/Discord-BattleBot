@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Discord_Bot
 {
@@ -73,12 +68,12 @@ namespace Discord_Bot
 
         public string Stats()
         {
-            return 
+            return
                    $"Endurance: {Endurance}\n" +
                    $"Strength: {Strength}\n" +
                    $"Vigor: {Vigor}";
         }
 
-        
+
     }
 }
