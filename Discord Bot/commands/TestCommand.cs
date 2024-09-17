@@ -1,32 +1,23 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Discord_Bot.commands
 {
     public class TestCommand : BaseCommandModule
 
-       
-        
+
+
     {
+
+        //SHOP TEST
+        //INITIALIZE SHOP
         static TestCommand()
         {
             Shop.initiateShopItems();
         }
 
-        
-    
-
-        [Command("test")]
-        public async Task tester(CommandContext ctx)
-        {
-            await ctx.Channel.SendMessageAsync("TEST DIN LUDER");
-        }
-
+        //SHOP COMMAND
         [Command("shop")]
         public async Task shop(CommandContext ctx)
         {
@@ -37,7 +28,26 @@ namespace Discord_Bot.commands
             }
 
             await ctx.Channel.SendMessageAsync(response);
-                    
+
         }
+
+
+        //
+        [Command("test")]
+        public async Task tester(CommandContext ctx)
+        {
+            await ctx.Channel.SendMessageAsync("TEST DIN LUDER");
+        }
+
+
+        //SNATCH USER INFORMATION 
+
+        [Command("start")]
+        public async Task Snatch(CommandContext ctx)
+        {
+            string name = ctx.Member.DisplayName;
+            await ctx.Channel.SendMessageAsync("Knep dig selv " + name);
+        }
+
     }
 }
