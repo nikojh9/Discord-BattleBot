@@ -145,6 +145,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Battle.cs" />
     <Compile Include="commands\BasicCommands.cs" />
     <Compile Include="commands\TestCommand.cs" />
     <Compile Include="JSONReader.cs" />
