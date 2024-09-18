@@ -4,75 +4,59 @@ namespace Discord_Bot
 {
     internal class Player
     {
-        public double Vigor { get; set; }
-        public double Endurance { get; set; }
-        public double Strength { get; set; }
-        public Item[] items = new Item[5];
-        public int Gold { get; set; }
+
+        //-----Profil oplysninger (DISCORD)-----
+
+        //Navn = Tages fra Discord.
+        //Navn bliver til ID når man opretter, og det vil blive gemt i database/
+        public string Navn {  get; set; }
+        //Profilbillede = Avatar URL tages fra Discord
+        public string ProfilBillede { get; set; }
 
 
-        public Player(double Vigor, double Endurance, double Strength)
-        {
-            this.Vigor = Vigor;
-            this.Endurance = Endurance;
-            this.Strength = Strength;
+        //-----battle klasse (TBD)-----
 
+        //ELO - Starter på 1200 - skal udregnes efter en ELO formel efter hver kamp
+        public int Elo { get; set; } = 1200;
+        public int Wins { get; set; }
+        public int Ties { get; set; }
+        public int Loses { get; set; }
+
+        // Skal have nextOpponent variabel (tbd) hvordan det skal laves?? 
+        //public string NextOpponent { get; set; }
+
+
+        //-----STATS-----
+
+        //Vigor = Health
+        public int Vigor { get; set; }
+        //Strength = Skade
+        public int Strength { get; set; }
+        //Defence = Skade penalty til modestander
+        public int Defence { get; set; }
+
+
+        //Player contructor
+        public Player(string navn, string profilbillede, int elo, int wins, int ties, int loses, int vigor, int strength, int defence) {
+            Navn = navn;
+            ProfilBillede = profilbillede;
+            Elo = elo;
+            Wins = wins;
+            Ties = ties;
+            Loses = loses;
+            Vigor = vigor;
+            Strength = strength;
+            Defence = defence;
+            
+               
         }
 
 
-        public void addItem(Item item)
-        {
-            // Check the ItemType and place it in the correct slot
-            switch (item.ItemType)
-            {
-                case Item.Type.Helmet:
-                    items[0] = item;
-                    break;
-                case Item.Type.BreastPlate:
-                    items[1] = item;
-                    break;
-                case Item.Type.Leggins:
-                    items[2] = item;
-                    break;
-                case Item.Type.Boots:
-                    items[3] = item;
-                    break;
-                case Item.Type.Weapon:
-                    items[4] = item;
-                    break;
-                case Item.Type.Trinket:
-                    items[5] = item;
-                    break;
-                default:
-                    Console.WriteLine("Item type not recognized or no slot available.");
-                    break;
-            }
+       
 
-            //Kalder metoden hver gang nyt item bliver tilføjet
-            itemAddStats();
-        }
-        //Resetter alle stats og tilføjer de nye
-        public void itemAddStats()
-        {
-            Vigor = 0;
-            Endurance = 0;
-            Strength = 0;
 
-            foreach (Item item in items)
-            {
-                this.Vigor += item.ItemVigor;
-                this.Endurance += item.ItemEndurance;
-                this.Strength += item.ItemStrength;
-            }
-        }
-
-        public string Stats()
-        {
-            return
-                   $"Endurance: {Endurance}\n" +
-                   $"Strength: {Strength}\n" +
-                   $"Vigor: {Vigor}";
-        }
+       
+        
 
 
     }
