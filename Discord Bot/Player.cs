@@ -51,13 +51,5 @@ namespace Discord_Bot
                
         }
 
-
-       
-
-
-       
-        
-
-
     }
 }
