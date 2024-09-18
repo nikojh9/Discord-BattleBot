@@ -1,5 +1,7 @@
 ﻿using DSharpPlus;
 using DSharpPlus.CommandsNext;
+using DSharpPlus.Interactivity;
+using DSharpPlus.Interactivity.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace Discord_Bot
     internal class Program
     {
         
-        private static DiscordClient Client { get; set; }
+        public static DiscordClient Client { get; set; }
         private static CommandsNextExtension Commands {  get; set; }
         
         static async Task Main(string[] args)
@@ -19,6 +21,7 @@ namespace Discord_Bot
             var jsonReader = new JSONReader();
             await jsonReader.ReadJSON();
 
+            // BASIC BOT CONFIG - ÆNDRE KUN HVIS MEGET NØDVENDIGT
             var discordConfig = new DiscordConfiguration()
             {
                 Intents = DiscordIntents.All,
@@ -29,8 +32,15 @@ namespace Discord_Bot
 
             Client = new DiscordClient(discordConfig);
 
+            //INTERACTIVITY CONFIGURATION - ÆNDRE HVIS KNAPPER SKAL HAVE LÆNGERE LEVETID AT BLIVE TRYKKET PÅ
+            Client.UseInteractivity(new InteractivityConfiguration()
+            {
+                Timeout = TimeSpan.FromMinutes(2)
+            });
             Client.Ready += Client_Ready;
 
+
+            //COMMANDS CONFIG - ÆNDRE KUN HVIS MEGET NØDVENDIGT
             var commandsConfig = new CommandsNextConfiguration()
             {
                 StringPrefixes = new string[] { jsonReader.prefix },
