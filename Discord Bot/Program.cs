@@ -41,6 +41,7 @@ namespace Discord_Bot
 
             Commands = Client.UseCommandsNext(commandsConfig);
             Commands.RegisterCommands<commands.TestCommand>();
+            Commands.RegisterCommands<commands.BasicCommands>();
 
             await Client.ConnectAsync();
             await Task.Delay(-1);
