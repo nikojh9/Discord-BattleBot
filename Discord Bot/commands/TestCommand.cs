@@ -17,7 +17,7 @@ namespace Discord_Bot.commands
         }
 
         //INTERACTIVITY - VENT PÅ INPUT FRA BRUGEREN TEST
-        //KODEN GØR AT DEN VENTER PÅ EN SVARET HELLO. SÅ MAN KAN FÅ DEN TIL AT VENTE PÅ FORSKELLIGE INPUT FØR DEN REAGERER
+        //KODEN GØR AT DEN VENTER PÅ EN DER SVARE HELLO EFTER !ACTIVITYTEST KOMMANDO ER KALDT. SÅ MAN KAN FÅ DEN TIL AT VENTE PÅ FORSKELLIGE INPUT FØR DEN REAGERER
         [Command("activityTest")]
         public async Task testtttt(CommandContext ctx)
         {
