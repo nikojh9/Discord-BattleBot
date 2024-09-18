@@ -1,0 +1,20 @@
+﻿
+
+
+
+// TODO
+
+
+-Battle klasse
+hvordan skal den laves?
+CalculateFight() metode
+
+-BattlePlanner klasse?
+createLineup() metode?
+
+-Leaderboard / statistik (klasse?)
+
+
+
+-Train klasse + TrainCommand klasse + Train commands
+
