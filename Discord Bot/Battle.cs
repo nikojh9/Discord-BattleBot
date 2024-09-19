@@ -171,15 +171,15 @@ namespace Discord_Bot
             //POST FIGHT
             List<string> postFightSentences = new List<string>
 {
-    $"Standing alone, amidst blood and gore... THE WINNER IS: {winner.Navn}",
+    $"Standing alone, amidst blood and gore... {winner.Navn} stands",
     $"With the crowd roaring in approval, {winner.Navn} stands tall, victorious and unchallenged.",
-    $"{winner.Navn} wipes the sweat from their brow, the battlefield quiet... THE WINNER IS: {winner.Navn}",
-    $"Amidst the fallen and the silence, one fighter remains standing... THE WINNER IS: {winner.Navn}",
-    $"The dust settles and only one fighter remains... THE WINNER IS: {winner.Navn}",
+    $"{winner.Navn} wipes the sweat from their brow, the battlefield quiet...",
+    $"Amidst the fallen and the silence, one fighter remains standing... {winner.Navn}",
+    $"The dust settles and only one fighter remains... {winner.Navn}",
     $"{winner.Navn} surveys the battlefield, triumphant and victorious over all who opposed them.",
     $"With a final strike, the battle is over, and {winner.Navn} reigns supreme as the victor!",
-    $"The arena falls silent, and all eyes turn to the one left standing... THE WINNER IS: {winner.Navn}",
-    $"Covered in dirt and sweat, but victorious nonetheless... THE WINNER IS: {winner.Navn}",
+    $"The arena falls silent, and all eyes turn to the one left standing... {winner.Navn}",
+    $"Covered in dirt and sweat, but victorious nonetheless... stands {winner.Navn}",
     $"As the last echoes of battle fade, {winner.Navn} stands tall, the undeniable champion of the arena."
 };
 
