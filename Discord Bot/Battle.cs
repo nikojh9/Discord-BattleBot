@@ -124,14 +124,14 @@ namespace Discord_Bot
             //kombiner og returnerer dem alle
 
             string fightStory = $"Round 1: {battle1}\n" +
-                        "" +
+                        "\n" +
                         $"Round 2: {battle2}\n" +
-                        "" +
+                        "\n" +
                         $"Round 3: {battle3}\n" +
-                        "" +
+                        "\n" +
                         $"{deathSummary}\n" +
-                        "" +
-                        $"{postFight}";
+                        "\n" +
+                        $"{postFight}\n";
 
             return fightStory;
         }
