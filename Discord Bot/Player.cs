@@ -39,16 +39,7 @@ namespace Discord_Bot
         //Player contructor
         public Player(string navn, string profilbillede) {
             Navn = navn;
-            ProfilBillede = profilbillede;
-            this.Elo = Elo;
-            this.Wins = Wins;
-            this.Ties = Ties;
-            this.Loses = Loses;
-            this.Vigor = Vigor;
-            this.Strength = Strength;
-            this.Defence = Defence;
-            
-               
+            ProfilBillede = profilbillede;    
         }
 
     }
