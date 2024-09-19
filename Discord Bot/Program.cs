@@ -56,8 +56,8 @@ namespace Discord_Bot
 
             //TEST BATTLE
 
-            Player testPlayer1 = new Player("Juhlino", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x", 1, 1, 1);
-            Player testPlayer2 = new Player("Zizto", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x", 1, 1, 1);
+            Player testPlayer1 = new Player("Juhlino", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x");
+            Player testPlayer2 = new Player("Zizto", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x");
 
             string result = Battle.battleStory(Battle.CalculateFight(testPlayer1, testPlayer2));
 

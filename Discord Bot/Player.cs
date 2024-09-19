@@ -29,24 +29,24 @@ namespace Discord_Bot
         //-----STATS-----
 
         //Vigor = Health
-        public int Vigor { get; set; }
+        public int Vigor { get; set; } = 3;
         //Strength = Skade
-        public int Strength { get; set; }
+        public int Strength { get; set; } = 1;
         //Defence = Skade penalty til modestander
-        public int Defence { get; set; }
+        public int Defence { get; set; } = 0;
 
 
         //Player contructor
-        public Player(string navn, string profilbillede, int vigor, int strength, int defence) {
+        public Player(string navn, string profilbillede) {
             Navn = navn;
             ProfilBillede = profilbillede;
             this.Elo = Elo;
             this.Wins = Wins;
             this.Ties = Ties;
             this.Loses = Loses;
-            Vigor = vigor;
-            Strength = strength;
-            Defence = defence;
+            this.Vigor = Vigor;
+            this.Strength = Strength;
+            this.Defence = Defence;
             
                
         }
