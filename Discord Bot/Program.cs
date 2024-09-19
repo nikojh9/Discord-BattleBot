@@ -18,6 +18,7 @@ namespace Discord_Bot
         
         static async Task Main(string[] args)
         {
+            //Læser botten prefix & token
             var jsonReader = new JSONReader();
             await jsonReader.ReadJSON();
 
