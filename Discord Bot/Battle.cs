@@ -65,32 +65,118 @@ namespace Discord_Bot
                 return "Spillerne kæmpede og kæmpede, men på slagmarken matchede de hinandens kamp evner. TIE";
             }
 
-            List<string> battleSummaries = new List<string> {
-        $"{winner.Navn} charges forward, clashing swords with {loser.Navn} as sparks fly from their intense duel.",
-        $"{loser.Navn} sidesteps just in time, dodging {winner.Navn}’s attack and countering with a swift kick to the ribs.",
-        $"{winner.Navn} rolls beneath {loser.Navn}’s strike, quickly regaining their footing and delivering a solid punch to the gut.",
-        $"{loser.Navn} spins around, deflecting {winner.Navn}’s blade and pushing them back with a powerful shove.",
-        $"{winner.Navn} swings high, but {loser.Navn} ducks and sweeps their leg, sending {winner.Navn} tumbling to the ground.",
-        $"{loser.Navn} jumps back to avoid the swing, then lunges forward with a series of quick jabs that force {winner.Navn} to retreat.",
-        $"{winner.Navn} blocks {loser.Navn}’s blow with their shield, then counters with a sharp elbow to the side.",
-        $"{loser.Navn}’s sword narrowly misses as {winner.Navn} sidesteps and delivers a hard kick to the shin.",
-        $"{winner.Navn} ducks under {loser.Navn}’s heavy strike, then slams their fist into {loser.Navn}’s side, knocking the wind out of them.",
-        $"{loser.Navn} grabs {winner.Navn}’s arm mid-swing and twists, throwing them off balance but not before {winner.Navn} kicks free."
-    };
+            List<string> battleStartSentences = new List<string>
+{
+    $"The battlefield roars with anticipation as {winner.Navn} and {loser.Navn} face off in a clash of titans. The ground shakes as they prepare to unleash their fury upon each other.",
 
-            List<string> deathSummaries = new List<string>{
-        $"{loser.Navn} stumbles after a fierce exchange, and {winner.Navn} seizes the moment to deliver a fatal blow to the chest.",
-        $"{winner.Navn} swings their sword with precision, striking {loser.Navn}’s neck and watching them crumple to the ground.",
-        $"{loser.Navn} gasps for breath as {winner.Navn}’s final strike pierces through their armor, ending the fight.",
-        $"{winner.Navn} thrusts their blade deep into {loser.Navn}’s side, and {loser.Navn} falls, bleeding out on the arena floor.",
-        $"{loser.Navn} falters after a missed strike, giving {winner.Navn} the opening to drive a dagger into their heart.",
-        $"{winner.Navn} delivers a crushing blow to {loser.Navn}’s head, and {loser.Navn} collapses, unmoving.",
-        $"{loser.Navn} falls to their knees, their vision fading as {winner.Navn} delivers the finishing strike to their chest.",
-        $"{winner.Navn}’s sword pierces {loser.Navn}’s gut, and {loser.Navn} slumps to the ground, gasping for air.",
-        $"{loser.Navn} collapses after a brutal slash to the throat, their lifeblood spilling out as {winner.Navn} stands victorious.",
-        $"{winner.Navn} drives their blade through {loser.Navn}’s back, and {loser.Navn} drops to the ground, their final breath escaping."
+    $"Under the fiery sunset, {winner.Navn} and {loser.Navn} stand poised for battle. Their eyes lock, and the air crackles with the energy of their impending confrontation.",
 
-            };
+    $"The arena trembles with excitement as {winner.Navn} and {loser.Navn} square off. A deafening cheer rises from the crowd as the two warriors prepare to engage in a legendary struggle.",
+
+    $"With a thunderous roar, {winner.Navn} and {loser.Navn} step into the arena. The tension is palpable as they ready themselves for a clash that will echo through the ages.",
+
+    $"The arena falls silent, save for the pounding of hearts as {winner.Navn} and {loser.Navn} face each other. The air is charged with the promise of an epic battle to come.",
+
+    $"As the first light of dawn breaks over the arena, {winner.Navn} and {loser.Navn} prepare for a battle that will be remembered in legend. The crowd holds its breath in anticipation.",
+
+    $"The very ground quakes with the might of {winner.Navn} and {loser.Navn} as they stand ready to clash. Their fierce determination is palpable, setting the stage for a monumental duel.",
+
+    $"In a dramatic display of strength, {winner.Navn} and {loser.Navn} prepare to engage in combat. The arena buzzes with excitement, knowing they are about to witness a fight for the ages.",
+
+    $"The clash of metal and the roar of the crowd signal the start of an epic confrontation. {winner.Navn} and {loser.Navn} lock eyes, each ready to claim victory in this monumental battle.",
+
+    $"With a ferocious cry, {winner.Navn} and {loser.Navn} prepare to face each other. The arena is alive with the electric energy of their impending clash, promising an unforgettable duel."
+};
+
+
+
+
+
+            var battleSequences = new List<Tuple<string, string, string>>
+{
+    Tuple.Create(
+        $"{winner.Navn} swings their sword with precision, and {loser.Navn} struggles to evade, barely managing to counter with a quick jab to {winner.Navn}'s side.",
+        $"{winner.Navn} staggers slightly but quickly recovers, blocking {loser.Navn}'s follow-up strike with a powerful parry.",
+        $"{winner.Navn} takes advantage of the opening, delivering a series of rapid strikes that forces {loser.Navn} into a defensive stance."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} charges forward with a powerful swing, and {loser.Navn} evades but takes a sharp kick to {winner.Navn}'s midsection.",
+        $"{winner.Navn} winces from the kick but swiftly raises their shield to block {loser.Navn}'s next attack.",
+        $"{winner.Navn} takes advantage of the momentary opening, landing a decisive blow that forces {loser.Navn} to retreat."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} lunges with their spear, and {loser.Navn} ducks under but gets caught by a sharp slash from {winner.Navn}.",
+        $"{loser.Navn} reels from the slash but quickly tries to counter, only to find {winner.Navn} deflecting with ease.",
+        $"{winner.Navn} capitalizes on the opening, landing a decisive blow that leaves {loser.Navn} vulnerable."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} raises their axe high and swings down, and {loser.Navn} dodges but takes a precise stab from {winner.Navn}'s dagger.",
+        $"{loser.Navn} grunts from the stab but quickly tries to block {winner.Navn}'s next strike.",
+        $"{winner.Navn} presses the advantage, landing a powerful blow that forces {loser.Navn} into a defensive stance."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} charges with their sword drawn, and {loser.Navn} sidesteps but is met with a solid punch to {winner.Navn}'s ribs.",
+        $"{winner.Navn} recoils but quickly raises their sword to block {loser.Navn}'s follow-up attack.",
+        $"{winner.Navn} takes advantage of the momentary gap, landing a quick series of attacks that push {loser.Navn} back."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} swings their mace with full force, and {loser.Navn} evades but takes a low kick to {winner.Navn}'s legs.",
+        $"{winner.Navn} stumbles but quickly recovers and deflects {loser.Navn}'s follow-up attack with a strong parry.",
+        $"{winner.Navn} presses the attack, landing a decisive blow that forces {loser.Navn} to retreat."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} launches a series of rapid strikes, and {loser.Navn} blocks them but gets hit by a quick jab to {winner.Navn}'s side.",
+        $"{winner.Navn} staggers but quickly recovers, blocking {loser.Navn}'s follow-up strike with a powerful parry.",
+        $"{winner.Navn} takes advantage of the opening, delivering a decisive blow that forces {loser.Navn} into a defensive position."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} thrusts their spear forward, and {loser.Navn} sidesteps but takes a solid punch to {winner.Navn}'s chest.",
+        $"{loser.Navn} staggers but quickly tries to counter, only to find {winner.Navn} blocking effectively.",
+        $"{winner.Navn} takes advantage of the opening, landing a powerful blow that forces {loser.Navn} into a defensive stance."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} swings their sword in a wide arc, and {loser.Navn} dodges but is met with a sharp cut from {winner.Navn}.",
+        $"{loser.Navn} grunts from the cut but tries to block {winner.Navn}'s next attack.",
+        $"{winner.Navn} presses the advantage, landing a powerful blow that forces {loser.Navn} to retreat."
+    ),
+    Tuple.Create(
+        $"{winner.Navn} charges with their sword, and {loser.Navn} sidesteps but takes a solid kick to {winner.Navn}'s midsection.",
+        $"{winner.Navn} stumbles but quickly recovers, blocking {loser.Navn}'s follow-up attack with a strong parry.",
+        $"{winner.Navn} takes advantage of the momentary gap, landing a decisive blow that forces {loser.Navn} into a defensive stance."
+    )
+};
+
+
+
+
+
+
+            List<string> deathSummaries = new List<string>
+{
+    $"{loser.Navn} crumples to the ground after {winner.Navn}'s decisive stab finds its mark, their strength fading as they fall.",
+
+    $"{winner.Navn} lands a critical blow to {loser.Navn}'s side, causing {loser.Navn} to stagger and collapse, defeated and bloodied.",
+
+    $"{loser.Navn} staggers from {winner.Navn}'s powerful punch, and with a final, crushing blow, they fall to their knees, defeated.",
+
+    $"{winner.Navn}'s precise jab to {loser.Navn}'s ribs leaves {loser.Navn} gasping for breath, their fight ending with a final collapse.",
+
+    $"{loser.Navn} falls to the arena floor as {winner.Navn}'s final strike lands with lethal force, their last breath escaping into the silence.",
+
+    $"{winner.Navn} delivers a lethal cut to {loser.Navn}'s arm, and {loser.Navn} falls, their energy draining as they succumb to their injuries.",
+
+    $"{loser.Navn} collapses after {winner.Navn}'s swift strike lands true, their defeat marked by the finality of the blow.",
+
+    $"{winner.Navn} thrusts their sword into {loser.Navn}'s side, and {loser.Navn} slumps to the ground, their fight coming to a tragic end.",
+
+    $"{loser.Navn} gasps for air as {winner.Navn}'s final attack pierces through their defenses, their strength waning as they fall to the ground.",
+
+    $"{winner.Navn} lands a final, devastating blow to {loser.Navn}'s chest, and {loser.Navn} collapses, their fight coming to a sorrowful end."
+};
+
+
+
+
 
             List<string> postFightSentences = new List<string>
 {
@@ -107,12 +193,19 @@ namespace Discord_Bot
 };
 
 
+
+
+
+
+
             Random random = new Random();
 
-            //Vælger 3 tilfældige battle scenarier
-            string battle1 = battleSummaries[random.Next(battleSummaries.Count)];
-            string battle2 = battleSummaries[random.Next(battleSummaries.Count)];
-            string battle3 = battleSummaries[random.Next(battleSummaries.Count)];
+            //Vælger 1 tilfældig battle pre fight
+            string prefight = battleStartSentences[random.Next(battleStartSentences.Count)];
+
+            //Vælger 1 battleSequence
+            var selectedSequence = battleSequences[random.Next(battleSequences.Count)];
+            string battleRounds = $"Round 1: {selectedSequence.Item1}\n\nRound 2: {selectedSequence.Item2}\n\nRound 3: {selectedSequence.Item3}";
 
             //Vælger 1 tilfælduig death scenarie
             string deathSummary = deathSummaries[random.Next(deathSummaries.Count)];
@@ -123,11 +216,9 @@ namespace Discord_Bot
 
             //kombiner og returnerer dem alle
 
-            string fightStory = $"Round 1: {battle1}\n" +
+            string fightStory = $"{prefight}\n" +
                         "\n" +
-                        $"Round 2: {battle2}\n" +
-                        "\n" +
-                        $"Round 3: {battle3}\n" +
+                        $"{battleRounds}\n" +
                         "\n" +
                         $"{deathSummary}\n" +
                         "\n" +
