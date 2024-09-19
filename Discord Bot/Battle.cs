@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace Discord_Bot
 {
-    internal class Battle
+    public class Battle
     {
         //Returnerer String af testårsager
         public static String CalculateFight(Player player1, Player player2)
         {   //Vægt af stats(kan og burde ændres)
-            double vigorhWeight = 0.4;
-            double strengthWeight = 0.3;
-            double defenceWeight = 0.2;
+            int vigorhWeight = 1;
+            int strengthWeight = 1;
+            int defenceWeight = 1;
             
             //Udregning af samlede stats for spillere
-            double player1Total = (player1.Vigor * vigorhWeight) + (player1.Defence * defenceWeight) + (player1.Strength * strengthWeight);
-            double player2Total = (player2.Vigor * vigorhWeight) + (player2.Defence * defenceWeight) + (player2.Strength * strengthWeight);
+            int player1Total = (player1.Vigor * vigorhWeight) + (player1.Defence * defenceWeight) + (player1.Strength * strengthWeight);
+            int player2Total = (player2.Vigor * vigorhWeight) + (player2.Defence * defenceWeight) + (player2.Strength * strengthWeight);
 
             //Udregner vinder chancer
-            double totalStats = player1Total + player2Total;
-            double player1WinChance = (player1Total / totalStats) * 100; // I procent (ikke magic number c0_0c)
-            double player2WinChance = (player2Total / totalStats) * 100;
+            int totalStats = player1Total + player2Total;
+            int player1WinChance = (player1Total / totalStats) * 100; // I procent (ikke magic number c0_0c)
+            int player2WinChance = (player2Total / totalStats) * 100;
             
             //Skaber tilfældighed
             Random random = new Random();
-            double player1RandomFactor = random.NextDouble() * 10 - 5;//Tilføjer en tilfældighed på -5 eller 5%
-            double player2RandomFactor = random.NextDouble() * 10 - 5;//Tilføjer en tilfældighed på -5 eller 5%
+            int player1RandomFactor = random.Next() * 10 - 5;//Tilføjer en tilfældighed på -5 eller 5%
+            int player2RandomFactor = random.Next() * 10 - 5;//Tilføjer en tilfældighed på -5 eller 5%
 
             //Tilføjer tilfældigheden til deres vinderchance
             player1WinChance += player1RandomFactor;

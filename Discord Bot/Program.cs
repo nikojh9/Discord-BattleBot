@@ -53,8 +53,22 @@ namespace Discord_Bot
             Commands.RegisterCommands<commands.TestCommand>();
             Commands.RegisterCommands<commands.BasicCommands>();
 
+
+            //TEST BATTLE
+
+            Player testPlayer1 = new Player("Juhlino", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x", 1, 1, 1);
+            Player testPlayer2 = new Player("Zizto", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x", 1, 1, 1);
+
+            string result = Battle.CalculateFight(testPlayer1, testPlayer2);
+
+            Console.WriteLine(result);
+
+            //Connect BOT til DISC
             await Client.ConnectAsync();
+
+            //Sørger for at botten kører indtil programmet lukker. Værdien = Hvor lang tid robotten lever
             await Task.Delay(-1);
+
         }
 
         private static Task Client_Ready(DiscordClient sender, DSharpPlus.EventArgs.ReadyEventArgs args)
