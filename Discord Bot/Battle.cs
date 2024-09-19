@@ -65,6 +65,7 @@ namespace Discord_Bot
                 return "Spillerne kæmpede og kæmpede, men på slagmarken matchede de hinandens kamp evner. TIE";
             }
 
+            //BATTLE START 
             List<string> battleStartSentences = new List<string>
 {
     $"The battlefield roars with anticipation as {winner.Navn} and {loser.Navn} face off in a clash of titans. The ground shakes as they prepare to unleash their fury upon each other.",
@@ -88,10 +89,7 @@ namespace Discord_Bot
     $"With a ferocious cry, {winner.Navn} and {loser.Navn} prepare to face each other. The arena is alive with the electric energy of their impending clash, promising an unforgettable duel."
 };
 
-
-
-
-
+            //TUPLE AF BATTLESEQ - Spørg inden tilføjelse for at følge logik
             var battleSequences = new List<Tuple<string, string, string>>
 {
     Tuple.Create(
@@ -146,11 +144,7 @@ namespace Discord_Bot
     )
 };
 
-
-
-
-
-
+            //DEATH IN FIGHT
             List<string> deathSummaries = new List<string>
 {
     $"{loser.Navn} crumples to the ground after {winner.Navn}'s decisive stab finds its mark, their strength fading as they fall.",
@@ -174,10 +168,7 @@ namespace Discord_Bot
     $"{winner.Navn} lands a final, devastating blow to {loser.Navn}'s chest, and {loser.Navn} collapses, their fight coming to a sorrowful end."
 };
 
-
-
-
-
+            //POST FIGHT
             List<string> postFightSentences = new List<string>
 {
     $"Standing alone, amidst blood and gore... THE WINNER IS: {winner.Navn}",
@@ -191,11 +182,6 @@ namespace Discord_Bot
     $"Covered in dirt and sweat, but victorious nonetheless... THE WINNER IS: {winner.Navn}",
     $"As the last echoes of battle fade, {winner.Navn} stands tall, the undeniable champion of the arena."
 };
-
-
-
-
-
 
 
             Random random = new Random();
