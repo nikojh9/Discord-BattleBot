@@ -57,8 +57,7 @@ namespace Discord_Bot.commands
                 .WithTitle($"{testPlayer10.Navn} VS {testPlayer20.Navn}")
                 .WithDescription(result)
                 .WithColor(fightResult.winner != null ? DiscordColor.Green : DiscordColor.Red)
-                .AddField("Winner", winnerText, inline: false)
-                .WithThumbnail("https://cdn3.iconfinder.com/data/icons/chat-bot-glyph-silhouettes-1/300/14112417Untitled-3-512.png");
+                .AddField("Winner", winnerText, inline: false);
 
             
             var message = new DiscordMessageBuilder()
