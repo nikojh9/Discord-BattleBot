@@ -2,6 +2,7 @@
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity.Extensions;
+using System.Net.Sockets;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 
@@ -28,6 +29,35 @@ namespace Discord_Bot.commands
             if (messageToRetrieve.Result.Content == "hello")
             {
                 await ctx.Channel.SendMessageAsync($"{ctx.User.Username} said hello");
+            }
+        }
+
+        [Command("train")]
+        public async Task train(CommandContext ctx)
+        {
+            Player player1 = new Player("zizto", "billede");
+
+            var actitvity = Program.Client.GetInteractivity();
+            await ctx.Channel.SendMessageAsync("Tryk 1 for at træne Vigor \n Tryk 2 for at træne Strength \n Tryk 3 for at træne Defence");
+            var messageToRetrieve = await actitvity.WaitForMessageAsync(message =>
+        message.Content == "1" || message.Content == "2" || message.Content == "3");
+
+            if(messageToRetrieve.Result == null)
+            {
+                await ctx.Channel.SendMessageAsync("Ingen input modtaget.");
+            }
+            
+            if (messageToRetrieve.Result.Content == "1")
+            {
+                Train.TrainVigor(player1);
+            }
+            else if (messageToRetrieve.Result.Content == "2")
+            {
+                Train.TrainStrength(player1);
+            }
+            else if(messageToRetrieve.Result.Content == "3")
+            {
+                Train.TrainDefenc(player1);
             }
         }
 

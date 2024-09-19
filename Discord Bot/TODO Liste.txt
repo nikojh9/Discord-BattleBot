@@ -16,5 +16,5 @@ createLineup() metode?
 
 
 
--Train klasse + TrainCommand klasse + Train commands
+-Train klasse + TrainCommand klasse + Train commands //Udkast færdig
 
