@@ -2,6 +2,7 @@
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity.Extensions;
+using System;
 using System.Net.Sockets;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
@@ -32,34 +33,114 @@ namespace Discord_Bot.commands
             }
         }
 
+        //_______________________________<<TRÆNING>>_______________________________________________________________________________________________
         [Command("train")]
         public async Task train(CommandContext ctx)
         {
-            Player player1 = new Player("zizto", "billede");
+            Player player1 = new Player("user", "billede");
 
-            var actitvity = Program.Client.GetInteractivity();
-            await ctx.Channel.SendMessageAsync("Tryk 1 for at træne Vigor \n Tryk 2 for at træne Strength \n Tryk 3 for at træne Defence");
-            var messageToRetrieve = await actitvity.WaitForMessageAsync(message =>
-        message.Content == "1" || message.Content == "2" || message.Content == "3");
+            var interactitvity = Program.Client.GetInteractivity();
 
-            if(messageToRetrieve.Result == null)
+
+            //Venter på brugeren skriver 1, 2, eller 3;
+            await ctx.Channel.SendMessageAsync("Tryk 1 for at træne Vigor ❤️ \n Tryk 2 for at træne Strength 💪 \n Tryk 3 for at træne Defence 🛡️");
+            var messageResponse = await interactitvity.WaitForMessageAsync(
+           x => x.Author.Id == ctx.User.Id && (x.Content == "1" || x.Content == "2" || x.Content == "3"),
+           TimeSpan.FromSeconds(30)//30 sekunder time-out tid til at svare
+           );
+
+            //Hvis brugeren ikke svarede inden for timeout
+            if (messageResponse.TimedOut)
             {
-                await ctx.Channel.SendMessageAsync("Ingen input modtaget.");
+                await ctx.Channel.SendMessageAsync("Du lagde dig tilbage i sengen, ingen træning fuldført");
+                return;
             }
-            
-            if (messageToRetrieve.Result.Content == "1")
+
+
+            //valg af træningstype
+            string trainingType;
+            switch (messageResponse.Result.Content)
             {
+                case "1":
+                    trainingType = "Vigor";
+                    break;
+                case "2":
+                    trainingType = "Strength";
+                    break;
+                case "3":
+                    trainingType = "Defence";
+                    break;
+                default:
+                    trainingType = string.Empty;
+                    break;
+            }
+
+
+            //Her sættes varigheden af cooldown
+            TimeSpan cooldownDuration = TimeSpan.FromSeconds(30);//!!!SKAL ÆNDRES!!!
+            var userId = ctx.User.Id;
+
+            if (CooldownManager.IsOnCooldown(userId, trainingType))
+            {
+                //Hvis brugeren har cooldown, beregnes resten af tiden
+                TimeSpan remainingCooldown = CooldownManager.GetRemainingCooldown(userId, trainingType);
+                await ctx.Channel.SendMessageAsync($"Du er for træt efter en hård {trainingType} træning! Du er klar igen om {remainingCooldown.Seconds} sekunder!"); //Skal tilføjes {remainingCoolDown.Minutes hvis tid ændres til over 60 sec}
+                return;
+            }
+
+            //udførelse af træningstyper
+            if(trainingType == "Vigor")
+            {
+                await ctx.Channel.SendMessageAsync("Løber fra drager... "); //Sender besked
+                await Task.Delay(2000);//Venter 2 sekunder
+
+                await ctx.Channel.SendMessageAsync("Hopper over Kløfter...");
+                await Task.Delay(2000);
+
+                await ctx.Channel.SendMessageAsync("Sprinter op ad bjerge...");
+                await Task.Delay(2000);
+
                 Train.TrainVigor(player1);
             }
-            else if (messageToRetrieve.Result.Content == "2")
-            {
+            else if (trainingType == "Strength")
+            { 
+                await ctx.Channel.SendMessageAsync("Lægger arm med orker...");
+                await Task.Delay(2000);
+
+                await ctx.Channel.SendMessageAsync("Slår på sten....");
+                await Task.Delay(2000);
+
+                await ctx.Channel.SendMessageAsync("Løfter træer...");
+                await Task.Delay(2000);
+            
                 Train.TrainStrength(player1);
             }
-            else if(messageToRetrieve.Result.Content == "3")
+            else if (trainingType == "Defence")
             {
-                Train.TrainDefenc(player1);
+                await ctx.Channel.SendMessageAsync("Undviger ildkugler...");
+                await Task.Delay(2000);
+
+                await ctx.Channel.SendMessageAsync("Parerer Kødsværd....");
+                await Task.Delay(2000);
+
+                await ctx.Channel.SendMessageAsync("Undslipper Kevins headlocks...");
+                await Task.Delay(2000);
+
+
+                Train.TrainDefence(player1);
             }
+
+            //efter succesfuld træning, sættes cooldown for brugeren
+            CooldownManager.SetCooldown(userId,trainingType,cooldownDuration);
+
+            //Sender besked om, at træningen er afsluttet, og hvornår de kan træne igen
+            await ctx.Channel.SendMessageAsync($"Tillykke! Du har gennemført en voldsom {trainingType} træning! Du kan træne igen om {cooldownDuration}");
+ 
         }
+        //___________________________________________________________________________________________________________________________________
+
+
+
 
 
         //test fight command

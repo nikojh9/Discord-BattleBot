@@ -21,7 +21,7 @@ namespace Discord_Bot
         }
 
 
-        public static void TrainDefenc(Player player) 
+        public static void TrainDefence(Player player) 
         {
             player.Defence += 3;
         }
