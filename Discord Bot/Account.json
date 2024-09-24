@@ -1,0 +1,37 @@
+{
+  "Accounts": [
+    {
+      "Navn": "nikolaijuhl",
+      "ProfilBillede": "https://cdn.discordapp.com/embed/avatars/0.png?size=1024",
+      "Elo": 1200,
+      "Wins": 0,
+      "Ties": 0,
+      "Loses": 0,
+      "Vigor": 3,
+      "Strength": 10000,
+      "Defence": 0
+    },
+    {
+      "Navn": "island9807",
+      "ProfilBillede": "https://cdn.discordapp.com/avatars/410888739754082316/2467d757ec854b874e991c1bdd1697a7.png?size=1024",
+      "Elo": 1200,
+      "Wins": 0,
+      "Ties": 0,
+      "Loses": 0,
+      "Vigor": 9,
+      "Strength": 2,
+      "Defence": 3
+    },
+    {
+      "Navn": "lilskov_",
+      "ProfilBillede": "https://cdn.discordapp.com/embed/avatars/0.png?size=1024",
+      "Elo": 1200,
+      "Wins": 0,
+      "Ties": 0,
+      "Loses": 0,
+      "Vigor": 6,
+      "Strength": 14,
+      "Defence": 6
+    }
+  ]
+}

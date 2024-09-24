@@ -1,22 +1,25 @@
-﻿using DSharpPlus.CommandsNext;
+﻿
+using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using DSharpPlus.Interactivity.Extensions;
-using System;
-using System.Net.Sockets;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
+
 
 namespace Discord_Bot.commands
 {
     public class TestCommand : BaseCommandModule
     {
+        private readonly Controller.PlayerController playersDataController = new Controller.PlayerController();
         // SKABELON TIL COMMANDS
         [Command("test")]
         public async Task tester(CommandContext ctx)
         {
             await ctx.Channel.SendMessageAsync("TEST DIN LUDER");
         }
+
+
+
 
         //INTERACTIVITY - VENT PÅ INPUT FRA BRUGEREN TEST
         //KODEN GØR AT DEN VENTER PÅ EN DER SVARE HELLO EFTER !ACTIVITYTEST KOMMANDO ER KALDT. SÅ MAN KAN FÅ DEN TIL AT VENTE PÅ FORSKELLIGE INPUT FØR DEN REAGERER
@@ -33,114 +36,6 @@ namespace Discord_Bot.commands
             }
         }
 
-        //_______________________________<<TRÆNING>>_______________________________________________________________________________________________
-        [Command("train")]
-        public async Task train(CommandContext ctx)
-        {
-            Player player1 = new Player("user", "billede");
-
-            var interactitvity = Program.Client.GetInteractivity();
-
-
-            //Venter på brugeren skriver 1, 2, eller 3;
-            await ctx.Channel.SendMessageAsync("Tryk 1 for at træne Vigor ❤️ \n Tryk 2 for at træne Strength 💪 \n Tryk 3 for at træne Defence 🛡️");
-            var messageResponse = await interactitvity.WaitForMessageAsync(
-           x => x.Author.Id == ctx.User.Id && (x.Content == "1" || x.Content == "2" || x.Content == "3"),
-           TimeSpan.FromSeconds(30)//30 sekunder time-out tid til at svare
-           );
-
-            //Hvis brugeren ikke svarede inden for timeout
-            if (messageResponse.TimedOut)
-            {
-                await ctx.Channel.SendMessageAsync("Du lagde dig tilbage i sengen, ingen træning fuldført");
-                return;
-            }
-
-
-            //valg af træningstype
-            string trainingType;
-            switch (messageResponse.Result.Content)
-            {
-                case "1":
-                    trainingType = "Vigor";
-                    break;
-                case "2":
-                    trainingType = "Strength";
-                    break;
-                case "3":
-                    trainingType = "Defence";
-                    break;
-                default:
-                    trainingType = string.Empty;
-                    break;
-            }
-
-
-            //Her sættes varigheden af cooldown
-            TimeSpan cooldownDuration = TimeSpan.FromSeconds(30);//!!!SKAL ÆNDRES!!!
-            var userId = ctx.User.Id;
-
-            if (CooldownManager.IsOnCooldown(userId, trainingType))
-            {
-                //Hvis brugeren har cooldown, beregnes resten af tiden
-                TimeSpan remainingCooldown = CooldownManager.GetRemainingCooldown(userId, trainingType);
-                await ctx.Channel.SendMessageAsync($"Du er for træt efter en hård {trainingType} træning! Du er klar igen om {remainingCooldown.Seconds} sekunder!"); //Skal tilføjes {remainingCoolDown.Minutes hvis tid ændres til over 60 sec}
-                return;
-            }
-
-            //udførelse af træningstyper
-            if(trainingType == "Vigor")
-            {
-                await ctx.Channel.SendMessageAsync("Løber fra drager... "); //Sender besked
-                await Task.Delay(2000);//Venter 2 sekunder
-
-                await ctx.Channel.SendMessageAsync("Hopper over Kløfter...");
-                await Task.Delay(2000);
-
-                await ctx.Channel.SendMessageAsync("Sprinter op ad bjerge...");
-                await Task.Delay(2000);
-
-                Train.TrainVigor(player1);
-            }
-            else if (trainingType == "Strength")
-            { 
-                await ctx.Channel.SendMessageAsync("Lægger arm med orker...");
-                await Task.Delay(2000);
-
-                await ctx.Channel.SendMessageAsync("Slår på sten....");
-                await Task.Delay(2000);
-
-                await ctx.Channel.SendMessageAsync("Løfter træer...");
-                await Task.Delay(2000);
-
-                Train.TrainStrength(player1);
-            }
-            else if (trainingType == "Defence")
-            {
-                await ctx.Channel.SendMessageAsync("Undviger ildkugler...");
-                await Task.Delay(2000);
-
-                await ctx.Channel.SendMessageAsync("Parerer Kødsværd....");
-                await Task.Delay(2000);
-
-                await ctx.Channel.SendMessageAsync("Undslipper Kevins headlocks...");
-                await Task.Delay(2000);
-
-
-                Train.TrainDefence(player1);
-            }
-
-            //efter succesfuld træning, sættes cooldown for brugeren
-            CooldownManager.SetCooldown(userId,trainingType,cooldownDuration);
-
-            //Sender besked om, at træningen er afsluttet, og hvornår de kan træne igen
-            await ctx.Channel.SendMessageAsync($"Tillykke! Du har gennemført en voldsom {trainingType} træning! Du kan træne igen om {cooldownDuration}");
- 
-        }
-        //___________________________________________________________________________________________________________________________________
-
-
-
 
 
         //test fight command
@@ -152,25 +47,25 @@ namespace Discord_Bot.commands
             Player testPlayer10 = new Player("Juhlino", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x");
             Player testPlayer20 = new Player("Zizto", "https://gravatar.com/avatar/56d913cb58ca6142bb393e174db297f2?s=400&d=robohash&r=x");
 
-           
+
             var fightResult = Battle.CalculateFight(testPlayer10, testPlayer20);
 
-           
+
             string result = Battle.battleStory(fightResult);
 
-            
+
             string winnerText = fightResult.winner != null
                 ? $"**{fightResult.winner.Navn}**"
                 : "The match ended in a draw.";
 
-            
+
             var embed = new DiscordEmbedBuilder()
                 .WithTitle($"{testPlayer10.Navn} VS {testPlayer20.Navn}")
                 .WithDescription(result)
                 .WithColor(fightResult.winner != null ? DiscordColor.Green : DiscordColor.Red)
                 .AddField("Winner", winnerText, inline: false);
 
-            
+
             var message = new DiscordMessageBuilder()
                 .AddEmbed(embed);
 

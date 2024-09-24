@@ -4,26 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Discord_Bot;
+
 
 namespace Discord_Bot
 {
     internal class Train
     {
+        private readonly Controller.PlayerController playerController = new Controller.PlayerController();
 
-        public static void TrainVigor(Player player)
+        public async Task TrainVigor(Player player)
         {
-            player.Vigor += 3;
+            await playerController.UpdatePlayerStats(player, 0, 0, 0, 3, 0, 0);
         }
 
-        public static void TrainStrength(Player player)
+        public async Task TrainStrength(Player player)
         {
-            player.Strength += 3;
+            await playerController.UpdatePlayerStats(player, 0, 0, 0, 0, 3, 0);
         }
 
 
-        public static void TrainDefence(Player player) 
+        public async Task TrainDefence(Player player) 
         {
-            player.Defence += 3;
+            await playerController.UpdatePlayerStats(player, 0, 0, 0, 0, 0, 3);
         }
 
      
