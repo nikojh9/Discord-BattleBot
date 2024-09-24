@@ -1,4 +1,5 @@
-﻿using DSharpPlus;
+﻿using Discord_Bot.Controller;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
@@ -53,11 +54,6 @@ namespace Discord_Bot
             Commands = Client.UseCommandsNext(commandsConfig);
             Commands.RegisterCommands<commands.TestCommand>();
             Commands.RegisterCommands<commands.BasicCommands>();
-
-
-           
-            
-
 
 
             //Connect BOT til DISC

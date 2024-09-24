@@ -148,6 +148,7 @@
     <Compile Include="Battle.cs" />
     <Compile Include="commands\BasicCommands.cs" />
     <Compile Include="commands\TestCommand.cs" />
+    <Compile Include="Controller\PlayerController.cs" />
     <Compile Include="CooldownManager.cs" />
     <Compile Include="JSONReader.cs" />
     <Compile Include="Player.cs" />
@@ -156,12 +157,17 @@
     <Compile Include="Train.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Account.json" />
     <None Include="App.config" />
     <None Include="config\config.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TODO Liste.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Storage\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
