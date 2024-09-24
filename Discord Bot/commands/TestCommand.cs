@@ -112,7 +112,7 @@ namespace Discord_Bot.commands
 
                 await ctx.Channel.SendMessageAsync("Løfter træer...");
                 await Task.Delay(2000);
-            
+
                 Train.TrainStrength(player1);
             }
             else if (trainingType == "Defence")
