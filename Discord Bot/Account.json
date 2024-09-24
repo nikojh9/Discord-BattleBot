@@ -21,6 +21,17 @@
       "Vigor": 6,
       "Strength": 2,
       "Defence": 0
+    },
+    {
+      "Navn": "lilskov_",
+      "ProfilBillede": "https://cdn.discordapp.com/embed/avatars/0.png?size=1024",
+      "Elo": 1200,
+      "Wins": 0,
+      "Ties": 0,
+      "Loses": 0,
+      "Vigor": 3,
+      "Strength": 5,
+      "Defence": 3
     }
   ]
 }

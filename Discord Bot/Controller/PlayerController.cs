@@ -82,8 +82,8 @@ namespace Discord_Bot.Controller
                 existingPlayer.Ties = player.Ties;
                 existingPlayer.Elo = player.Elo;
                 existingPlayer.Vigor = player.Vigor;    
-                existingPlayer.Strength += player.Strength;
-                existingPlayer.Defence += player.Defence;
+                existingPlayer.Strength = player.Strength;
+                existingPlayer.Defence = player.Defence;
                 await SavePlayersData(players);
             }
         }
