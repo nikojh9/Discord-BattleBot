@@ -173,7 +173,7 @@ namespace Discord_Bot.commands
 
             // TRÆNING DONE
             var embedDone = new DiscordEmbedBuilder()
-            .WithTitle($"\nTillykke! Du har gennemført en voldsom {trainingType} træning! Du kan træne igen om {cooldownDuration.Seconds} sekunder.\n{switchMessage}")
+            .WithTitle($"\n{player1.Navn}! Du har gennemført en voldsom {trainingType} træning! Du kan træne igen om {cooldownDuration.Seconds} sekunder.\n\n{switchMessage}")
             .WithColor(DiscordColor.Green)
             ;
             await ctx.Channel.SendMessageAsync(embedDone);
