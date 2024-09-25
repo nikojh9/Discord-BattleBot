@@ -147,6 +147,7 @@
   <ItemGroup>
     <Compile Include="Battle.cs" />
     <Compile Include="commands\BasicCommands.cs" />
+    <Compile Include="commands\FightCommands.cs" />
     <Compile Include="commands\TestCommand.cs" />
     <Compile Include="commands\TrainCommands.cs" />
     <Compile Include="Controller\PlayerController.cs" />

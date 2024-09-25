@@ -80,9 +80,27 @@ namespace Discord_Bot.commands
             }
         }
 
+        //SKRIVER EN LISTE UD AF ALLE SPILLERE
+        [Command("spillere")]
+        public async Task SpillerList(CommandContext ctx)
+        {
+            //LOAD PLAYERS
+            var players = await playerController.LoadPlayersData();
+
+            if (players == null || players.Count == 0)
+            {
+                await ctx.Channel.SendMessageAsync("Ingen spillere oprettet");
+                return;
+            }
+
+            //lav en string af alle spiller navne
+            var playerNames = string.Join(", ", players.Select(p => p.Navn));
+
+            //Udskriv navne
+            await ctx.Channel.SendMessageAsync($"Aktuelle spiller liste: {playerNames}");
 
 
-
+        }
        
     }
 
