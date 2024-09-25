@@ -115,37 +115,37 @@ namespace Discord_Bot.commands
             }
 
 
-            // Udfører den korrekte træning
+            // Udfører den korrekte træning - !!!COMMENTED KODE ER KUN MIDLERTIDIGT UDE INDTIL VI HAR DESIGN FOR HVORDAN DET SKAL FREMSTÅ!!
             Train training = new Train();
             if (trainingType == "Vigor")
             {
                 await training.TrainVigor(player1);
-                await ctx.Channel.SendMessageAsync("Løber fra drager... ");
-                await Task.Delay(2000);
-                await ctx.Channel.SendMessageAsync("Hopper over Kløfter...");
-                await Task.Delay(2000);
-                await ctx.Channel.SendMessageAsync("Sprinter op ad bjerge...");
-                await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Løber fra drager... ");
+                //await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Hopper over Kløfter...");
+                //await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Sprinter op ad bjerge...");
+                //await Task.Delay(2000);
             }
             else if (trainingType == "Strength")
             {
                 await training.TrainStrength(player1);
-                await ctx.Channel.SendMessageAsync("Lægger arm med orker...");
-                await Task.Delay(2000);
-                await ctx.Channel.SendMessageAsync("Slår på sten...");
-                await Task.Delay(2000);
-                await ctx.Channel.SendMessageAsync("Løfter træer...");
-                await Task.Delay(2000); 
+                //await ctx.Channel.SendMessageAsync("Lægger arm med orker...");
+                //await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Slår på sten...");
+                //await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Løfter træer...");
+                //await Task.Delay(2000); 
             }
             else if (trainingType == "Defence")
             {
                 await training.TrainDefence(player1);
-                await ctx.Channel.SendMessageAsync("Undviger ildkugler...");
-                await Task.Delay(2000);
-                await ctx.Channel.SendMessageAsync("Parerer Kødsværd...");
-                await Task.Delay(2000);
-                await ctx.Channel.SendMessageAsync("Undslipper Kevins headlocks...");
-                await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Undviger ildkugler...");
+                //await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Parerer Kødsværd...");
+                //await Task.Delay(2000);
+                //await ctx.Channel.SendMessageAsync("Undslipper Kevins headlocks...");
+                //await Task.Delay(2000);
             }
 
             // Set cooldown efter træning
