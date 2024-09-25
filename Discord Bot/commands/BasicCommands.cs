@@ -30,7 +30,7 @@ namespace Discord_Bot.commands
 
 
         //OPRET TEST
-        [Command("testOpret")]
+        [Command("create")] //add flare til efter konto oprettet
         public async Task opretProfil(CommandContext ctx)
         {
             string currentUser = ctx.User.Username;
@@ -103,7 +103,7 @@ namespace Discord_Bot.commands
             Train training = new Train();
 
             //Venter på brugeren skriver 1, 2, eller 3;
-            await ctx.Channel.SendMessageAsync("Tryk 1 for at træne Vigor ❤️ \n Tryk 2 for at træne Strength 💪 \n Tryk 3 for at træne Defence 🛡️");
+            await ctx.Channel.SendMessageAsync("Tryk 1 for at træne **Vigor** ❤️ \n Tryk 2 for at træne **Strength** 💪 \n Tryk 3 for at træne **Defence** 🛡️");
             var messageResponse = await interactitvity.WaitForMessageAsync(
            x => x.Author.Id == ctx.User.Id && (x.Content == "1" || x.Content == "2" || x.Content == "3"),
            TimeSpan.FromSeconds(30)//30 sekunder time-out tid til at svare
