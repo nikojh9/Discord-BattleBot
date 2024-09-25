@@ -51,9 +51,11 @@ namespace Discord_Bot
                 EnableDefaultHelp = false,
             };
 
+            //REGISTRER COMMANDS
             Commands = Client.UseCommandsNext(commandsConfig);
             Commands.RegisterCommands<commands.TestCommand>();
             Commands.RegisterCommands<commands.BasicCommands>();
+            Commands.RegisterCommands<commands.TrainCommands>();
 
 
             //Connect BOT til DISC
