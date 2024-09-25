@@ -8,7 +8,7 @@
       "Ties": 0,
       "Loses": 0,
       "Vigor": 33,
-      "Strength": 10000,
+      "Strength": 1,
       "Defence": 6
     },
     {
@@ -18,9 +18,9 @@
       "Wins": 0,
       "Ties": 0,
       "Loses": 0,
-      "Vigor": 9,
-      "Strength": 10,
-      "Defence": 3
+      "Vigor": 24,
+      "Strength": 16,
+      "Defence": 56
     },
     {
       "Navn": "lilskov_",

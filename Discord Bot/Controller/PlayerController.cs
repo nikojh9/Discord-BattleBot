@@ -10,8 +10,7 @@ namespace Discord_Bot.Controller
     public class PlayerController
     {
         // STIEN TIL JSON
-        private const string JsonFilePath = "C:\\Users\\Nikolai\\source\\repos\\Discord BattleBot\\Discord Bot\\Account.json"; // ÆNDRE TIL DIN EGEN HVIS DU SKAL KØRE PROGRAMMET
-
+        private const string JsonFilePath = "C:\\Users\\Jeppe\\Source\\Repos\\Discord-BattleBot\\Discord Bot\\Account.json";
         // Load all players from the JSON file
         public Task<List<Player>> LoadPlayersData()
         {

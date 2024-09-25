@@ -171,7 +171,7 @@ namespace Discord_Bot
             //POST FIGHT
             List<string> postFightSentences = new List<string>
 {
-    $"Standing alone, amidst blood and gore... {winner.Navn} stands",
+    "Standing alone, amidst blood and gore... {winner.Navn} stands",
     $"With the crowd roaring in approval, {winner.Navn} stands tall, victorious and unchallenged.",
     $"{winner.Navn} wipes the sweat from their brow, the battlefield quiet...",
     $"Amidst the fallen and the silence, one fighter remains standing... {winner.Navn}",
