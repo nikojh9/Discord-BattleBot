@@ -56,6 +56,7 @@ namespace Discord_Bot
             Commands.RegisterCommands<commands.TestCommand>();
             Commands.RegisterCommands<commands.BasicCommands>();
             Commands.RegisterCommands<commands.TrainCommands>();
+            Commands.RegisterCommands<commands.FightCommands>();
 
 
             //Connect BOT til DISC
